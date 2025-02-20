@@ -71,7 +71,7 @@ function App() {
               {/* <Route path="/contact" element={<Contact />} /> New Contact route */}
               
               {/* New Visa Detail Route */}
-              <Route path="/visa-info/:id" element={<VisaDetail />} />
+              {/* <Route path="/visa-info/:id" element={<VisaDetail />} /> */}
 
               {/* Dashboard NESTED ROUTES */}
               <Route
@@ -86,6 +86,7 @@ function App() {
                 <Route index element={<DashboardHome />} />
                 {/* Sub-routes */}
                 <Route path="visa-info" element={<DashboardVisa />} />
+                <Route path="visa-info/:id" element={<VisaDetail />} />
                 <Route path="job-board" element={<DashboardJobs />} />
                 <Route path="housing" element={<DashboardHousing />} />
                 <Route path="forum" element={<DashboardForum />} />
