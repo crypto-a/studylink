@@ -1,4 +1,3 @@
-// src/App.tsx
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import Header from "./components/Header";
@@ -13,11 +12,13 @@ import Settings from "./pages/Settings";
 import JobDetail from "./pages/JobDetail";
 import HousingDetail from "./pages/HousingDetail";
 import Services from "./pages/Services";
+// import Contact from "./pages/Contact";  // New Contact page
 
 /* Dashboard Layout & Pages */
 import DashboardLayout from "./pages/dashboard/DashboardLayout";
 import DashboardHome from "./pages/dashboard/DashboardHome";
 import DashboardVisa from "./pages/dashboard/DashboardVisa";
+import VisaDetail from "./pages/dashboard/VisaDetail";  // Visa detail page
 import DashboardJobs from "./pages/dashboard/DashboardJobs";
 import DashboardHousing from "./pages/dashboard/DashboardHousing";
 import DashboardForum from "./pages/dashboard/DashboardForum";
@@ -67,6 +68,10 @@ function App() {
                   </ProtectedRoute>
                 }
               />
+              {/* <Route path="/contact" element={<Contact />} /> New Contact route */}
+              
+              {/* New Visa Detail Route */}
+              <Route path="/visa-info/:id" element={<VisaDetail />} />
 
               {/* Dashboard NESTED ROUTES */}
               <Route
