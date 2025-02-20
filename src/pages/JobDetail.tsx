@@ -18,10 +18,10 @@ const JobDetail = () => {
             This job may not exist or requires a premium subscription.
           </p>
           <Link
-            to="/dashboard"
+            to="/dashboard/job-board"
             className="bg-amber-600 text-white font-bold py-2 px-4 rounded hover:bg-amber-700 transition duration-300"
           >
-            Back to Dashboard
+            Back to Job Board
           </Link>
         </div>
       </section>
@@ -32,19 +32,37 @@ const JobDetail = () => {
     <section className="py-12 bg-amber-50 min-h-[60vh]">
       <div className="max-w-4xl mx-auto px-4">
         <Link
-          to="/dashboard"
+          to="/dashboard/job-board"
           className="text-amber-600 hover:underline mb-4 inline-block"
         >
-          &larr; Back to Dashboard
+          &larr; Back to Job Board
         </Link>
         <div className="bg-white p-6 rounded-lg shadow-md">
           <h2 className="text-3xl font-bold text-amber-900 mb-4">{job.title}</h2>
-          <p className="text-amber-800 mb-2"><strong>Company:</strong> {job.company}</p>
-          <p className="text-amber-800 mb-2"><strong>Location:</strong> {job.location}</p>
-          <p className="text-amber-800 mb-2"><strong>Type:</strong> {job.type}</p>
-          <p className="text-amber-800 mb-2"><strong>Salary:</strong> {job.salary}</p>
-          <p className="text-amber-800 mb-4"><strong>Description:</strong> {job.description}</p>
-          <p className="text-amber-800 mb-4"><strong>Contact:</strong> <a href={`mailto:${job.contact}`} className="text-amber-600 hover:underline">{job.contact}</a></p>
+          <p className="text-amber-800 mb-2">
+            <strong>Company:</strong> {job.company}
+          </p>
+          <p className="text-amber-800 mb-2">
+            <strong>Location:</strong> {job.location}
+          </p>
+          <p className="text-amber-800 mb-2">
+            <strong>Type:</strong> {job.type}
+          </p>
+          <p className="text-amber-800 mb-2">
+            <strong>Salary:</strong> {job.salary}
+          </p>
+          <p className="text-amber-800 mb-4">
+            <strong>Description:</strong> {job.description}
+          </p>
+          <p className="text-amber-800 mb-4">
+            <strong>Contact:</strong>{" "}
+            <a
+              href={`mailto:${job.contact}`}
+              className="text-amber-600 hover:underline"
+            >
+              {job.contact}
+            </a>
+          </p>
           <button
             onClick={() => alert(`Contact ${job.contact} to apply!`)}
             className="bg-amber-600 text-white font-bold py-2 px-4 rounded hover:bg-amber-700 transition duration-300"

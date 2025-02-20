@@ -16,7 +16,7 @@ const Register = () => {
       return;
     }
     // Simulate API call
-    alert(`Registered with email: ${email}`);
+    // Removed the "Registered with email" alert
     navigate('/login');
   };
 

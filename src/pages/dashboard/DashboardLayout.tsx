@@ -5,13 +5,14 @@ import {
   FaPassport,
   FaBriefcase,
   FaHome,
-  FaComments
+  FaComments,
+  FaServicestack
 } from "react-icons/fa";
 
 const DashboardLayout = () => {
   return (
     <div className="min-h-[60vh] bg-amber-50 pb-8">
-      {/* Sub-Nav with icons */}
+      {/* Sub-Nav */}
       <div className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4">
           <nav className="flex space-x-4 overflow-x-auto py-3">
@@ -25,6 +26,7 @@ const DashboardLayout = () => {
               <FaPassport className="mr-2" />
               Visa Info
             </NavLink>
+
             <NavLink
               to="job-board"
               className={({ isActive }) =>
@@ -35,6 +37,7 @@ const DashboardLayout = () => {
               <FaBriefcase className="mr-2" />
               Job Board
             </NavLink>
+
             <NavLink
               to="housing"
               className={({ isActive }) =>
@@ -45,6 +48,7 @@ const DashboardLayout = () => {
               <FaHome className="mr-2" />
               Housing
             </NavLink>
+
             <NavLink
               to="forum"
               className={({ isActive }) =>
@@ -55,10 +59,23 @@ const DashboardLayout = () => {
               <FaComments className="mr-2" />
               Q&A Forum
             </NavLink>
+
+            {/* New Menu for Other Services */}
+            <NavLink
+              to="other-services"
+              className={({ isActive }) =>
+                `flex items-center px-4 py-2 text-sm font-medium rounded hover:bg-amber-100 transition
+                 ${isActive ? "text-amber-900 bg-amber-200" : "text-amber-700"}`
+              }
+            >
+              <FaServicestack className="mr-2" />
+              Other Services
+            </NavLink>
           </nav>
         </div>
       </div>
-      {/* Child Components Render Here */}
+
+      {/* Child Components */}
       <div className="max-w-7xl mx-auto px-4 mt-6">
         <Outlet />
       </div>

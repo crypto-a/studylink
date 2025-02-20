@@ -22,6 +22,7 @@ import VisaDetail from "./pages/dashboard/VisaDetail";  // Visa detail page
 import DashboardJobs from "./pages/dashboard/DashboardJobs";
 import DashboardHousing from "./pages/dashboard/DashboardHousing";
 import DashboardForum from "./pages/dashboard/DashboardForum";
+import DashboardOtherServices from "./pages/dashboard/DashboardOtherServices";
 
 function App() {
   return (
@@ -90,6 +91,7 @@ function App() {
                 <Route path="job-board" element={<DashboardJobs />} />
                 <Route path="housing" element={<DashboardHousing />} />
                 <Route path="forum" element={<DashboardForum />} />
+                <Route path="other-services" element={<DashboardOtherServices />} />
               </Route>
 
               {/* Fallback */}

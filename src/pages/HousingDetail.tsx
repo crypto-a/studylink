@@ -18,10 +18,10 @@ const HousingDetail = () => {
             This listing may not exist or requires a premium subscription.
           </p>
           <Link
-            to="/dashboard"
+            to="/dashboard/housing"
             className="bg-amber-600 text-white font-bold py-2 px-4 rounded hover:bg-amber-700 transition duration-300"
           >
-            Back to Dashboard
+            Back to Housing
           </Link>
         </div>
       </section>
@@ -32,17 +32,31 @@ const HousingDetail = () => {
     <section className="py-12 bg-amber-50 min-h-[60vh]">
       <div className="max-w-4xl mx-auto px-4">
         <Link
-          to="/dashboard"
+          to="/dashboard/housing"
           className="text-amber-600 hover:underline mb-4 inline-block"
         >
-          &larr; Back to Dashboard
+          &larr; Back to Housing
         </Link>
         <div className="bg-white p-6 rounded-lg shadow-md">
           <h2 className="text-3xl font-bold text-amber-900 mb-4">{house.title}</h2>
-          <p className="text-amber-800 mb-2"><strong>Location:</strong> {house.location}</p>
-          <p className="text-amber-800 mb-2"><strong>Rent:</strong> {house.rent}</p>
-          <p className="text-amber-800 mb-4"><strong>Description:</strong> {house.description}</p>
-          <p className="text-amber-800 mb-4"><strong>Contact:</strong> <a href={`mailto:${house.contact}`} className="text-amber-600 hover:underline">{house.contact}</a></p>
+          <p className="text-amber-800 mb-2">
+            <strong>Location:</strong> {house.location}
+          </p>
+          <p className="text-amber-800 mb-2">
+            <strong>Rent:</strong> {house.rent}
+          </p>
+          <p className="text-amber-800 mb-4">
+            <strong>Description:</strong> {house.description}
+          </p>
+          <p className="text-amber-800 mb-4">
+            <strong>Contact:</strong>{" "}
+            <a
+              href={`mailto:${house.contact}`}
+              className="text-amber-600 hover:underline"
+            >
+              {house.contact}
+            </a>
+          </p>
           <button
             onClick={() => alert(`Contact ${house.contact} to inquire!`)}
             className="bg-amber-600 text-white font-bold py-2 px-4 rounded hover:bg-amber-700 transition duration-300"

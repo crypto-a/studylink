@@ -13,7 +13,7 @@ const Login = () => {
     e.preventDefault();
     // Simulate API call and login
     login('student'); // Default role for simplicity
-    alert(`Logged in with email: ${email}`);
+    // Removed the alert, we just navigate
     navigate('/dashboard');
   };
 
