@@ -11,6 +11,10 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Settings from "./pages/Settings";
+import JobDetail from "./pages/JobDetail";
+import HousingDetail from "./pages/HousingDetail";
+import Services from "./pages/Services";
+import Forum from "./pages/Forum";
 
 function App() {
   return (
@@ -38,6 +42,38 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <Settings />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/job/:id"
+                element={
+                  <ProtectedRoute>
+                    <JobDetail />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/housing/:id"
+                element={
+                  <ProtectedRoute>
+                    <HousingDetail />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/services"
+                element={
+                  <ProtectedRoute>
+                    <Services />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/forum"
+                element={
+                  <ProtectedRoute>
+                    <Forum />
                   </ProtectedRoute>
                 }
               />

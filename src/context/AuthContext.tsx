@@ -5,15 +5,16 @@ type UserRole = 'student' | 'jobPoster' | 'other';
 
 interface AuthContextType {
   userRole: UserRole | null;
+  isAuthenticated: boolean;
   isSubscribed: boolean;
   login: (role: UserRole) => void;
   logout: () => void;
   toggleSubscription: () => void;
 }
 
-// Default values - note that isSubscribed would normally come from a real server or token
 const AuthContext = createContext<AuthContextType>({
   userRole: null,
+  isAuthenticated: false,
   isSubscribed: false,
   login: () => {},
   logout: () => {},
@@ -21,23 +22,23 @@ const AuthContext = createContext<AuthContextType>({
 });
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  // Mock state for demonstration
   const [userRole, setUserRole] = useState<UserRole | null>(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isSubscribed, setIsSubscribed] = useState(false);
 
   const login = (role: UserRole) => {
     setUserRole(role);
-    // In a real app, you'd set subscription state based on server response
-    setIsSubscribed(false);
+    setIsAuthenticated(true);
+    setIsSubscribed(false); // Default to free tier on login
   };
 
   const logout = () => {
     setUserRole(null);
+    setIsAuthenticated(false);
     setIsSubscribed(false);
   };
 
   const toggleSubscription = () => {
-    // This simulates subscribing/unsubscribing
     setIsSubscribed((prev) => !prev);
   };
 
@@ -45,6 +46,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     <AuthContext.Provider
       value={{
         userRole,
+        isAuthenticated,
         isSubscribed,
         login,
         logout,
@@ -56,5 +58,4 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
-// Helper Hook
 export const useAuth = () => useContext(AuthContext);

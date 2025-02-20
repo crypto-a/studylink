@@ -1,14 +1,21 @@
-import React, { useState } from 'react'
+// src/pages/Login.tsx
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 const Login = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // TODO: Add API call for login authentication
-    alert(`Logged in with email: ${email}`)
-  }
+    e.preventDefault();
+    // Simulate API call and login
+    login('student'); // Default role for simplicity
+    alert(`Logged in with email: ${email}`);
+    navigate('/dashboard');
+  };
 
   return (
     <section className="py-12 bg-amber-50">
@@ -22,7 +29,7 @@ const Login = () => {
             <input
               type="email"
               id="email"
-              className="w-full p-2 border border-amber-300 rounded"
+              className="w-full p-2 border border-amber-300 rounded focus:outline-none focus:ring-2 focus:ring-amber-600"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -35,7 +42,7 @@ const Login = () => {
             <input
               type="password"
               id="password"
-              className="w-full p-2 border border-amber-300 rounded"
+              className="w-full p-2 border border-amber-300 rounded focus:outline-none focus:ring-2 focus:ring-amber-600"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -50,8 +57,7 @@ const Login = () => {
         </form>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Login
-
+export default Login;

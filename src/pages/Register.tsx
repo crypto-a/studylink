@@ -1,20 +1,24 @@
-import React, { useState } from 'react'
+// src/pages/Register.tsx
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     if (password !== confirmPassword) {
-      alert('Passwords do not match!')
-      return
+      alert('Passwords do not match!');
+      return;
     }
-    // TODO: Add API call to register a new user
-    alert(`Registered with email: ${email}`)
-  }
+    // Simulate API call
+    alert(`Registered with email: ${email}`);
+    navigate('/login');
+  };
 
   return (
     <section className="py-12 bg-amber-50">
@@ -28,7 +32,7 @@ const Register = () => {
             <input
               type="text"
               id="name"
-              className="w-full p-2 border border-amber-300 rounded"
+              className="w-full p-2 border border-amber-300 rounded focus:outline-none focus:ring-2 focus:ring-amber-600"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
@@ -41,7 +45,7 @@ const Register = () => {
             <input
               type="email"
               id="email"
-              className="w-full p-2 border border-amber-300 rounded"
+              className="w-full p-2 border border-amber-300 rounded focus:outline-none focus:ring-2 focus:ring-amber-600"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -54,7 +58,7 @@ const Register = () => {
             <input
               type="password"
               id="password"
-              className="w-full p-2 border border-amber-300 rounded"
+              className="w-full p-2 border border-amber-300 rounded focus:outline-none focus:ring-2 focus:ring-amber-600"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -67,7 +71,7 @@ const Register = () => {
             <input
               type="password"
               id="confirmPassword"
-              className="w-full p-2 border border-amber-300 rounded"
+              className="w-full p-2 border border-amber-300 rounded focus:outline-none focus:ring-2 focus:ring-amber-600"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
@@ -82,7 +86,7 @@ const Register = () => {
         </form>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;

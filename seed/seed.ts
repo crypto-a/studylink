@@ -23,6 +23,7 @@ export const visaInfo = [
       type: "Part-Time",
       salary: "$16/hour",
       description: "Serve coffee and assist customers in a fast-paced environment.",
+      contact: "hr.toronto@timhortons.ca",
       premium: false,
     },
     {
@@ -33,7 +34,19 @@ export const visaInfo = [
       type: "Internship",
       salary: "$25/hour",
       description: "Work on real projects with a skilled development team.",
+      contact: "careers@techcorp.com",
       premium: true,
+    },
+    {
+      id: 3,
+      title: "Retail Assistant",
+      company: "ShopCo",
+      location: "Calgary, AB",
+      type: "Part-Time",
+      salary: "$15/hour",
+      description: "Assist customers and manage inventory in a retail setting.",
+      contact: "jobs@shopco.ca",
+      premium: false,
     },
   ];
   
@@ -44,6 +57,7 @@ export const visaInfo = [
       location: "Vancouver, BC",
       rent: "$1200/month",
       description: "1-bedroom apartment, 10-minute walk to UBC campus.",
+      contact: "landlord.van@gmail.com",
       premium: false,
     },
     {
@@ -52,6 +66,16 @@ export const visaInfo = [
       location: "Toronto, ON",
       rent: "$800/month",
       description: "Room in a shared house, close to public transit.",
+      contact: "torontohousing@outlook.com",
       premium: true,
+    },
+    {
+      id: 3,
+      title: "Studio Near McGill",
+      location: "Montreal, QC",
+      rent: "$1000/month",
+      description: "Quiet studio apartment, perfect for students.",
+      contact: "mcgill.rentals@yahoo.com",
+      premium: false,
     },
   ];
