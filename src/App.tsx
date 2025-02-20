@@ -9,12 +9,18 @@ import About from "./pages/About";
 import Pricing from "./pages/Pricing";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Dashboard from "./pages/Dashboard";
 import Settings from "./pages/Settings";
 import JobDetail from "./pages/JobDetail";
 import HousingDetail from "./pages/HousingDetail";
 import Services from "./pages/Services";
-import Forum from "./pages/Forum";
+
+/* Dashboard Layout & Pages */
+import DashboardLayout from "./pages/dashboard/DashboardLayout";
+import DashboardHome from "./pages/dashboard/DashboardHome";
+import DashboardVisa from "./pages/dashboard/DashboardVisa";
+import DashboardJobs from "./pages/dashboard/DashboardJobs";
+import DashboardHousing from "./pages/dashboard/DashboardHousing";
+import DashboardForum from "./pages/dashboard/DashboardForum";
 
 function App() {
   return (
@@ -29,14 +35,6 @@ function App() {
               <Route path="/pricing" element={<Pricing />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
-              <Route
-                path="/dashboard"
-                element={
-                  <ProtectedRoute>
-                    <Dashboard />
-                  </ProtectedRoute>
-                }
-              />
               <Route
                 path="/settings"
                 element={
@@ -69,14 +67,27 @@ function App() {
                   </ProtectedRoute>
                 }
               />
+
+              {/* Dashboard NESTED ROUTES */}
               <Route
-                path="/forum"
+                path="/dashboard"
                 element={
                   <ProtectedRoute>
-                    <Forum />
+                    <DashboardLayout />
                   </ProtectedRoute>
                 }
-              />
+              >
+                {/* Default dashboard route */}
+                <Route index element={<DashboardHome />} />
+                {/* Sub-routes */}
+                <Route path="visa-info" element={<DashboardVisa />} />
+                <Route path="job-board" element={<DashboardJobs />} />
+                <Route path="housing" element={<DashboardHousing />} />
+                <Route path="forum" element={<DashboardForum />} />
+              </Route>
+
+              {/* Fallback */}
+              <Route path="*" element={<Home />} />
             </Routes>
           </main>
           <Footer />
